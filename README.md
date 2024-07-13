@@ -22,7 +22,7 @@ In summary, the Virtual Private Gateway is created and managed on the AWS side, 
 
 ## Steps
 
-### Step 1: Launch EC2 Instance in On-Premises VPC (West Region - Prod Account)
+### Step 1: Launch EC2 Instance in On-Premises VPC (us-west-2 region)
 
 1. **Launch EC2 Instance:**
    - Choose an Amazon Machine Image (AMI).
@@ -32,7 +32,7 @@ In summary, the Virtual Private Gateway is created and managed on the AWS side, 
    - Attach a security group allowing SSH (port 22) and ICMP (all).
    - Make a note of the public IP address.
 
-### Step 2: AWS VPC Configuration (East Region - Management Account)
+### Step 2: AWS VPC Configuration (us-east-2 region)
 
 1. **Launch EC2 Instance:**
    - Choose an Amazon Machine Image (AMI).
@@ -64,14 +64,14 @@ In summary, the Virtual Private Gateway is created and managed on the AWS side, 
    - Enter prefixes: 172.31.0.0/16, 10.0.0.0/16 (VPC CIDRs for both East and West).
    - Download VPN configuration as `OpenSwan` type.
 
-### Step 3: Enable Route Propagation for AWS VPC Route Table (East Region - Management Account)
+### Step 3: Enable Route Propagation for AWS VPC Route Table (us-east-2 region)
 
 1. **Enable Route Propagation:**
    - Navigate to the Route Tables section within the VPC Dashboard.
    - Select the route table associated with your VPC.
    - Edit route propagation and enable it for the VGW.
 
-### Step 4: Configure OpenSwan on On-Premises VPC EC2 Instance (Production Account)
+### Step 4: Configure OpenSwan on On-Premises VPC EC2 Instance  
 
 1. **Install OpenSwan:**
    ```sh
